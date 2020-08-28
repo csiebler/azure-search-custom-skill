@@ -1,20 +1,22 @@
 # azure-search-custom-skill
 
-This is a simple example for extraction any `regex` from documents in Azure Cognitive Search.
+Steps to use this custom skill:
 
-```json
-{
-    "skills": [
-      "[... your existing skills remain here]",
-      {
+1. Adapt regex
+1. Deploy skill to Azure Function (Python) using `vscode`s or `az cli`
+1. Add skill entry to skillset and adapt fields
+    ```
+    ...
+    {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "name": "productids",
         "description": "RegEx extraction Skill",
-        "uri": "https://[your-function-url-here]",
-        "context": "/document/content/*",
+        "uri": "https://<name>.azurewebsites.net/api/RegexExtractor?code=<key>",
+        "context": "/document/merged_content",
         "inputs": [
         {
-            "name": "text1",
-            "source": "/document/content"
+            "name": "text",
+            "source": "/document/merged_content"
         }
         ],
         "outputs": [
@@ -23,7 +25,19 @@ This is a simple example for extraction any `regex` from documents in Azure Cogn
             "targetName": "product_ids"
         }
         ]
-      }
-  ]
-}
-```
+    },
+    ...
+    ```
+1. Create new field of type `Collection(Edm.String)` in index
+    ![Add new field](media/new_field_in_index.png)
+1. Add entry for `outputFieldMappings` to indexer
+    ```
+    ...
+    {
+    "sourceFieldName": "/document/merged_content/product_ids",
+    "targetFieldName": "product_ids"
+    },
+    ...
+    ```
+
+1. Re-index data
