@@ -1,0 +1,24 @@
+POST http://localhost:7071/api/RegexExtractor HTTP/1.1
+
+{
+    "values": [
+        {
+            "recordId": "e1",
+            "data":
+            {
+                "text":  "I have some questions regarding products P123456 and P6718890"
+            }
+        },
+        {
+            "recordId": "e2",
+            "data":
+            {
+                "text":  "Nothing to do here"
+            }
+        },
+        {
+            "recordId": "e3",
+            "data": "This is an invalid input"
+        }
+    ]
+}
