@@ -14,16 +14,16 @@ Steps to use this custom skill:
         "uri": "https://<name>.azurewebsites.net/api/RegexExtractor?code=<key>",
         "context": "/document/merged_content",
         "inputs": [
-        {
-            "name": "text",
-            "source": "/document/merged_content"
-        }
+            {
+                "name": "text",
+                "source": "/document/merged_content"
+            }
         ],
         "outputs": [
-        {
-            "name": "matches",
-            "targetName": "product_ids"
-        }
+            {
+                "name": "matches",
+                "targetName": "product_ids"
+            }
         ]
     },
     ...
@@ -34,8 +34,8 @@ Steps to use this custom skill:
     ```
     ...
     {
-    "sourceFieldName": "/document/merged_content/product_ids",
-    "targetFieldName": "product_ids"
+        "sourceFieldName": "/document/merged_content/product_ids",
+        "targetFieldName": "product_ids"
     },
     ...
     ```
