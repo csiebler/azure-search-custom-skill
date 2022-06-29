@@ -1,0 +1,22 @@
+{
+    "values": [
+        {
+            "recordId": "e1",
+            "data":
+            {
+                "text":  "DIN ISO 13715 and Blech EN 10051-4"
+            }
+        },
+        {
+            "recordId": "e2",
+            "data":
+            {
+                "text":  "Nothing to do here"
+            }
+        },
+        {
+            "recordId": "e3",
+            "data": "This is an invalid input"
+        }
+    ]
+}
