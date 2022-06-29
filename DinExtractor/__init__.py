@@ -3,7 +3,7 @@ import azure.functions as func
 import json
 import re
 
-regex = r'((DIN ISO|EN|ISO|DIN|DIN EN ISO)\s*(\d{3,10}))'
+regex = r'((DIN ISO|EN|ISO|DIN|DIN EN ISO|SN)\s*(\d{3,10}))'
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
