@@ -55,6 +55,7 @@ def transform_value(value):
     try:
         matches = []
         matches += re.findall(regex, value['data']['text'])
+        matches = list(set(matches))
     except:
         return (
             {
