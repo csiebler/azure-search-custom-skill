@@ -3,7 +3,7 @@ import azure.functions as func
 import json
 import re
 
-regex = r'((?:DIN ISO|EN|ISO)\s*\d{3,10})'
+regex = r'((DIN ISO|EN|ISO|DIN|DIN EN ISO)\s*(\d{3,10}))'
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
@@ -53,8 +53,9 @@ def transform_value(value):
 
     # Now actually perform our operation
     try:
-        matches = []
-        matches += re.findall(regex, value['data']['text'])
+        matches = []     
+        for r in re.findall(regex, value['data']['text']):
+            matches.append(f"{r[1]} {r[2]}")
         matches = list(set(matches))
     except:
         return (
