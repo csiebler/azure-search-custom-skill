@@ -1,0 +1,22 @@
+{
+    "values": [
+        {
+            "recordId": "e1",
+            "data":
+            {
+                "text":  "Hello this is a test!\nI'm just some standard test text. A test."
+            }
+        },
+        {
+            "recordId": "e2",
+            "data":
+            {
+                "text":  "Nothing to do here"
+            }
+        },
+        {
+            "recordId": "e3",
+            "data": "This is an invalid input"
+        }
+    ]
+}
